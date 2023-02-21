@@ -1,0 +1,110 @@
+:root {
+    --font-family:  'Work Sans', sans-serif;
+    --background-color: #f1f1f1;
+    --container-color: #f6f6f6;
+    --text-color: #121212;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+  }
+  
+  h1, #page-subtitle {
+    margin-left: 1rem;
+  }
+  
+  p {
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    align-content: center;
+    background-color: var(--container-color);
+    border: var(--container-color), 1rem;
+  }
+  
+  .intro-container {
+    display: flex;
+    margin: 	1rem;
+  }
+  
+  .intro {
+    flex-basis: 50%;
+    background-size: cover;
+    margin-right: 1rem;
+  }
+  
+  .potrait {
+    margin-right: 2rem;
+    background-size: cover;
+    flex-basis: 50%;
+  }
+  
+  .project-item {
+    display: flex;
+    place-items: stretch;
+    margin-bottom: 5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    box-shadow: 4px 4px 20px 1px rgba(0, 0, 0, .2);
+  }
+  
+  .project-item-text {
+    flex-basis: 60%;
+    margin: 1rem;
+  }
+  
+  .poject-image-container {
+   flex-basis: 40%;
+    background-size: cover;
+    margin-left: 2rem;
+  }
+  
+  .timeline-container {
+    width: 50%;
+    margin: auto;
+    border-left: solid;
+  }
+  
+  .timeline-item {
+    display: flex;
+    width:100%;
+    margin-bottom: 3rem;
+  }
+  
+  .timeline-item > *+* {
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .timeline-item-text {
+    flex-basis: 50%;
+    line-height: 1.1;
+    font-size: 1rem;
+  }
+  
+  .timeline-item-year {
+    flex-basis: 15%;
+  }
+  
+  .timeline-item-title {
+    flex-basis: 35%;
+  }
+  
+  .links {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  
+  .project-item:hover {
+      box-shadow: 10px 10px 20px 1px rgba(0, 0, 3, .2);
+  }
