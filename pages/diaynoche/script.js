@@ -1,48 +1,58 @@
 new p5(function(sketch) {
-    let sol = {
-        circleX: 10,
-        circleY: 1,
-        circleWidth: 100,
-        circleColor: '#ffad21'
+    // PARAMETERS
+    // canvas size
+    const width = 720;
+    const height = 360;
+    // orbit resolution
+    const resolution = 1000;
+    // colors
+    const colorSun = [52, 34, 100];
+    const colorMoon = [55, 56, 100];
+    const colorDay = [210, 49, 100];
+    const colorNight = [210, 100, 65];
+
+
+    // RELATIVE VALUES
+    // orbit
+    const radius = height / 3 * 2;
+    const centerX = width / 2;
+    const centerY = height;
+    // sun/moon
+    const bodyDiameter = height / 4;
+
+    // time is 0..<resolution & loops
+    let time = 0;
+
+    const drawSky = (time) => {
+        const factor = Math.sin(time / resolution * 2 * Math.PI);
+        const dayFactor = factor / 2 + 0.5;
+        const nightFactor = factor / -2 + 0.5;
+
+        const color = colorDay.map((c, i) =>
+            c * dayFactor + colorNight[i] * nightFactor
+        );
+        sketch.background(...color);
     }
-    
-    let luna = {
-        circleX: 50,
-        circleY: 10,
-        circleWidth: 100,
-        circleColor: '#ffad21'
+
+    const drawBody = (color, time) => {
+        const x = centerX + Math.cos(time / resolution * 2 * Math.PI) * radius;
+        const y = centerY + Math.sin(time / resolution * 2 * Math.PI) * radius;
+        sketch.fill(...color);
+        sketch.ellipse(x, y, bodyDiameter);
     }
+    const drawSun = (time) => drawBody(colorSun, time);
+    const drawMoon = (time) => drawBody(colorMoon, (time - resolution / 2) % resolution);
     
-    // The line below adds autocompletion for p5.js which is very Helpful
-    /// <reference path="./p5.d.ts" />
-    
-    // HELP: https://replit.com/@vogelino/P5js-Conditionals
-    
-    // Here are the docs for P5.js: https://p5js.org/reference/
-    let isNight = false;
-    
-    // The setup function is called once at the beginning
     sketch.setup = () => {
-        sketch.createCanvas(720, 360);
-        sketch.background(255);
-    
-        // Decide to draw either the day or the night
-        // based on the isNight variabl
+        sketch.createCanvas(width, height);
+        sketch.colorMode(sketch.HSB);
+        sketch.noStroke();
     }
-    
     
     sketch.draw = () => {
-        if (!isNight) {
-        sketch.background("#00029b");
-        sketch.fill("#fff4a8");
-        sketch.ellipse(luna.circleX, luna.circleY, luna.circleWidth)
-        luna.circleX++;
-        luna.circleY++;
-        if (luna.circleX > (sketch.width + luna.circleWidth)) {
-            luna.circleX = -50;
-            luna.circleY = -60;
-            
-        }
-        }
+        drawSky(time);
+        drawSun(time);
+        drawMoon(time);
+        time = (time + 1) % resolution;
     }
-}, 'diaynoche-canvas');    
+}, 'diaynoche-canvas');

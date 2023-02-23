@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../parallax.js"></script>
+        <script type="text/javascript" src="../../script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    
+    <body style="margin: 0" onload="setupParallax()">
+
+        <nav id="nav-bar">
+            <ul>
+              <li><a href="../../index.html">home</a></li>
+              <li><a href="../../pages/zero/zero.html">no. zero</a></li>
+              <li><a href="../../pages/tictactoe/tictactoe.html">tiqui taca toe</a></li>
+              <li><a href="#">biodiversity</a></li>
+              <li><a href="../../pages/perlinnoise/perlinnoise.html">collective healing</a></li>
+              <li><a href="../../pages/diaynoche/diaynoche.html">dia y noche</a></li>
+              <li><a href="../../pages/oxman/oxman.html" target="_blank">oxman</a></li>
+              <li><a href="../../pages/about.html">about me</a></li>
+            </ul>
+        </nav>
+
+        <div class="parallax-horizontalScroll">
+            <div class="horizontal">
+                <div class="vertical-centered-container w-40">
+                    <h2 class="title"> Biodiversity </h2>
+                </div>
+                <div class="vertical-centered-container w-30">
+                    <p>
+                        For my next project, I decided to use a JSON file to create data visualizations. I was interested in exploring forest coverage and used two data sets to create my visualizaton. The first data set included the percentage of forest coverage for each country, while the second data set provided the coordinates for each country.
+
+                        To make the data more accessible, I merged the two data sets so that each country was assigned to a set of coordinates. My goal was to create an abstract map that would allow viewers to visualize forest loss over the years.
+                        
+                        To achieve this, I decided to use circles without fill to represent each country. The filling within the circles would then represent the forest coverage. I also made the visualization interactive, so that viewers could see the changes for themselves.
+                        
+                        After I completed the project, I was surprised by some of the findings. One of the most interesting things I noticed was that the forest coverage had been increasing in the global north while decreasing in the global south. I also experimented with adding Perlin noise to the circles to make the interaction smoother, but it didn't have the effect I was looking for.
+                        
+                        Overall, this project was a great learning experience. I gained a better understanding of data visualization and was able to convey a powerful message about forest coverage and global trends.    
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas-scroll-container">
+            <div class="canvas-container" id="biodiversity-canvas">
+                <script type="text/javascript" src="./forest-coverage.js"></script>
+                <script type="text/javascript" src="./script.js"></script>
+            </div>
+        </div>
+
+    </body>
+</html>

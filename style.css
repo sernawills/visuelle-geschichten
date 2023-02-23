@@ -37,6 +37,7 @@ body {
     background-color: black;
     color: whitesmoke;
     caret-color: aquamarine;
+    cursor: url('/assets/scroll.png'), auto;
 }
 
 .title {
@@ -167,6 +168,16 @@ li:hover{
     background-color: rgb(81, 0, 255); 
     width: 600px; 
     height: 300px;
+    border: solid 1px whitesmoke; 
+    border-radius: 30rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#back-to-top {
+    width: 300px; 
+    height: 100px;
     border: solid 1px whitesmoke; 
     border-radius: 30rem; 
     display: flex;
